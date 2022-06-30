@@ -7,10 +7,12 @@ import SignUp from './SignUp';
 import MainMenu from './MainMenu';
 import NewRegister from './NewRegister';
 
-export default function App () {    
+export default function App () {   
+    const [user, setUser] = useState(null)
+
     return (
         <BrowserRouter>
-            <UserContext.Provider>
+            <UserContext.Provider value={{ user, setUser }}>
                 <Routes>
                     <Route path='/' element={ <Login/> } />
                     <Route path='/signup' element={ <SignUp/> } />
