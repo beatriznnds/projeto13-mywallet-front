@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #8C11BE;    ;
+}
+
+a {
+    text-decoration: none;
+}
