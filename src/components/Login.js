@@ -7,7 +7,7 @@ import UserContext from  "../contexts/UserContext";
 export default function Login () {
     const navigate = useNavigate();
     const [data, setData] = useState({email: "", password: ""});
-    const { user, setUser } = useContext(UserContext);
+    const { setUser } = useContext(UserContext);
 
     function Login (event) {
         event.preventDefault();
@@ -17,8 +17,8 @@ export default function Login () {
         });
         promise.then((res) => {
             const { data } = res;
-            setUser({ token: data }),
-            navigate('/menu')
+            setUser({ token: data });
+            navigate('/menu');
         });
         promise.catch((err) => {
             alert('Algo deu errado! Tente novamente.')
@@ -31,21 +31,19 @@ export default function Login () {
             <Form onSubmit={Login}>
                 <input
                     type="email"
-                    placeholder="email"
+                    placeholder="E-mail"
                     value={data.email}
-                    required
-                    disabled={disable}
+                    required                    
                     onChange={(e) => setData({...data, email: e.target.value})} 
                 />
                 <input
                     type="password"
-                    placeholder="senha"
+                    placeholder="Senha"
                     value={data.password}
-                    required
-                    disabled={disable}
+                    required                    
                     onChange={(e) => setData({...data, password: e.target.value})} 
                 />
-                <Button disabled={disable} type="submit">
+                <Button type="submit">
                     Entrar
                 </Button>
             </Form>
@@ -55,3 +53,61 @@ export default function Login () {
         </Container>
     )
 }
+
+
+const Container=styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+
+    h1 {
+        font-size: 32px;
+        color: #ffffff;
+        font-family: 'Saira Stencil One'
+    }
+
+    p {
+        margin-top: 20px;
+        font-family: 'Raleway';
+        font-size: 15px;
+        color: #ffffff;
+    }
+`
+const Form=styled.form`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+
+    input {
+        width: 325px;
+        height: 60px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        background-color: #ffffff;
+    }
+
+    &::placeholder {
+        font-family: 'Raleway';
+        font-size: 20px;
+        color: #000000;
+    }
+`
+
+const Button=styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 325px;
+    height: 45px;
+    background-color: #a328d6;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 25px;
+`
