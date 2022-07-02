@@ -16,8 +16,11 @@ export default function Login () {
             password: data.password
         });
         promise.then((res) => {
-            console.log(res)
             const {token, name} = res.data
+            localStorage.setItem("userdata", JSON.stringify({
+                name,
+                token
+            }));
             setUser({name, token})
             navigate('/menu');
         });

@@ -10,10 +10,11 @@ import Income from './Income';
 import Outcome from './Outcome';
 
 export default function App () {   
-    const [user, setUser] = useState(null);
-
-    console.log(user)
-
+    const [user, setUser] = useState(
+        localStorage.getItem('userdata')
+            ? JSON.parse(localStorage.getItem('userdata'))
+            : null
+    );
     return (
         <BrowserRouter>
             <UserContext.Provider value={{ user, setUser }}>

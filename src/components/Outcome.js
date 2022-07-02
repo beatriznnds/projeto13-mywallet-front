@@ -15,7 +15,7 @@ export default function Outcome () {
         const promise = axios.post('http://localhost:5000/entries', {value: outcome.value, description: outcome.description, type: "negative"}, {headers: {Authorization: `Bearer ${user.token}`}});
         console.log(outcome)
         promise.then((res) => {
-            navigate('/entries')
+            navigate('/menu')
         })
         promise.catch((err) => {
             alert('Algo deu errado! Tente novamente.')
@@ -25,7 +25,7 @@ export default function Outcome () {
     return (
         <Container>
             <Header>
-                <h2>Nova entrada</h2>
+                <h2>Nova saída</h2>
             </Header>
             <Form onSubmit={addOutcome}>
                 <input
@@ -43,7 +43,7 @@ export default function Outcome () {
                     onChange={(e) => setOutcome({...outcome, description: e.target.value})} 
                 />
                 <Button type="submit">
-                    <p>Salvar entrada</p>
+                    <p>Salvar saída</p>
                 </Button>
             </Form>
         </Container>
@@ -65,7 +65,7 @@ const Header=styled.div`
     
 `
 
-const Form=styled.div`
+const Form=styled.form`
     display: flex;
     justify-content: center;
     align-items: center;

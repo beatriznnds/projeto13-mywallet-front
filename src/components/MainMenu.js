@@ -8,7 +8,6 @@ import Entry from './Entry'
 export default function MainMenu () {
     let balance = 0;
     const { user } = useContext(UserContext);
-    console.log(user);
     const [entries, setEntries] = useState([]);
     const navigate = useNavigate();
 
@@ -43,12 +42,12 @@ export default function MainMenu () {
                     entries.length > 0 ? (
                     entries.map((entry, index) => <Entry key={index} value={entry.value} description={entry.description} type={entry.type} date={entry.date}/> ))
                     :
-                    <p>Não há registros de entrada ou saída</p>
+                    <BankStatementNull>Não há registros de entrada ou saída</BankStatementNull>
                 }
                 </div>
-                <Balance>
+                <Balance color={balance}>
                     <h2> SALDO </h2>
-                    <h3 color={balance}> { balance } </h3>
+                    <h3> { balance } </h3>
                 </Balance>
             </BankStatement>
             <Registers>
@@ -110,19 +109,19 @@ const BankStatement=styled.div`
     margin-top: 40px;
     background-color: #ffffff;
     border-radius: 5px;
-
-    p {
-        font-family: 'Raleway';
-        width: 180px;
-        height: 45px;
-        color: #868686;
-        font-size: 20px;
-        margin-top: 200px;
-        margin-left: 75px;
-        line-height: 25px;
-        text-align: center;
-    }
 `
+const BankStatementNull=styled.p`
+    font-family: 'Raleway';
+    width: 180px;
+    height: 45px;
+    color: #868686;
+    font-size: 20px;
+    margin-top: 200px;
+    margin-left: 75px;
+    line-height: 25px;
+    text-align: center;
+`
+
 const Balance=styled.div`
     display: flex;
     justify-content: space-between;
@@ -142,7 +141,7 @@ const Balance=styled.div`
         font-size: 17px;
         font-family: 'Raleway';
         margin-bottom: 2px;
-        color: ${props => props.balance > 0 ? "#03AC00" : "#C70000"};
+        color: ${props => props.color > 0 ? "#03AC00" : "#C70000"};
     }
 `
 

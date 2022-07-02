@@ -11,11 +11,9 @@ export default function Income () {
 
     function addIncome (event) {
         event.preventDefault();
-        console.log(user)
         const promise = axios.post('http://localhost:5000/entries', {value: income.value, description: income.description, type: "positive"}, {headers: {Authorization: `Bearer ${user.token}`}});
-        console.log(income)
         promise.then((res) => {
-            navigate('/entries')
+            navigate('/menu')
         })
         promise.catch((err) => {
             alert('Algo deu errado! Tente novamente.')
@@ -27,7 +25,7 @@ export default function Income () {
             <Header>
                 <h2>Nova entrada</h2>
             </Header>
-            <Form onSubmit={addIncome}>
+            <Form>
                 <input
                     type="text"
                     placeholder="Valor"
@@ -42,7 +40,7 @@ export default function Income () {
                     required                    
                     onChange={(e) => setIncome({...income, description: e.target.value})} 
                 />
-                <Button type="submit">
+                <Button onClick={addIncome}>
                     <p>Salvar entrada</p>
                 </Button>
             </Form>
