@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function SignUp () {
-    const [data, setData] = useState({email: "", name: "", password: ""})//, checkPassword: ""})
+    const [data, setData] = useState({email: "", name: "", password: "", checkPassword: ""})
     const navigate = useNavigate();
 
     function signUp (event) {
@@ -12,8 +12,8 @@ export default function SignUp () {
         const promise = axios.post('http://localhost:5000/signup', {
             email: data.email,
             name: data.name,
-            password: data.password
-            //checkPassword: data.checkPassword
+            password: data.password,
+            checkPassword: data.checkPassword
         });
         promise.then((res) => {
             navigate('/')
@@ -50,14 +50,14 @@ export default function SignUp () {
                     onChange={(e) => setData({...data, password: e.target.value})}
                     required
                 />
-                {/* <input
+                <input
                     value={data.checkPassword}
                     type="password"
                     name="password"
                     placeholder="Confirme a senha"
                     onChange={(e) => setData({...data, checkPassword: e.target.value})}
                     required
-                />      */}
+                />     
                 <Button type="submit">
                     Cadastrar
                 </Button>           

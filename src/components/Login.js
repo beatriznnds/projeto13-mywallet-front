@@ -7,7 +7,7 @@ import UserContext from  "../contexts/UserContext";
 export default function Login () {
     const navigate = useNavigate();
     const [data, setData] = useState({email: "", password: ""});
-    const { setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
 
     function Login (event) {
         event.preventDefault();
@@ -16,8 +16,9 @@ export default function Login () {
             password: data.password
         });
         promise.then((res) => {
-            const { data } = res;
-            setUser({ token: data });
+            console.log(res)
+            const {token, name} = res.data
+            setUser({name, token})
             navigate('/menu');
         });
         promise.catch((err) => {

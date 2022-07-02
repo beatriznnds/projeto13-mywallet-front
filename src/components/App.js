@@ -10,7 +10,9 @@ import Income from './Income';
 import Outcome from './Outcome';
 
 export default function App () {   
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+
+    console.log(user)
 
     return (
         <BrowserRouter>
