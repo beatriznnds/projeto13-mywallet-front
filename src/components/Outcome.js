@@ -11,9 +11,7 @@ export default function Outcome () {
 
     function addOutcome (event) {
         event.preventDefault();
-        console.log(user)
         const promise = axios.post('http://localhost:5000/entries', {value: outcome.value, description: outcome.description, type: "negative"}, {headers: {Authorization: `Bearer ${user.token}`}});
-        console.log(outcome)
         promise.then((res) => {
             navigate('/menu')
         })

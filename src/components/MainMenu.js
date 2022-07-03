@@ -109,6 +109,8 @@ const BankStatement=styled.div`
     margin-top: 40px;
     background-color: #ffffff;
     border-radius: 5px;
+    overflow: scroll;
+    padding-bottom: 20px;
 `
 const BankStatementNull=styled.p`
     font-family: 'Raleway';
@@ -126,9 +128,7 @@ const Balance=styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: -40px;
+    padding: 5px;
 
     h2 {
         font-family: 'Raleway';
