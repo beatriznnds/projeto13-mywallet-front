@@ -9,7 +9,7 @@ export default function SignUp () {
 
     function signUp (event) {
         event.preventDefault();
-        const promise = axios.post('https://projetomywallet-13.herokuapp.com/signup', {
+        const promise = axios.post('https://mywallet-13.herokuapp.com/signup', {
             email: data.email,
             name: data.name,
             password: data.password,

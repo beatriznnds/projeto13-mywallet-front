@@ -11,7 +11,7 @@ export default function Login () {
 
     function Login (event) {
         event.preventDefault();
-        const promise = axios.post('https://projetomywallet-13.herokuapp.com/login', {
+        const promise = axios.post('https://mywallet-13.herokuapp.com/login', {
             email: data.email,
             password: data.password
         });

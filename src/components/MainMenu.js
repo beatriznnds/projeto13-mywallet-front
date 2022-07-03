@@ -12,7 +12,7 @@ export default function MainMenu () {
     const navigate = useNavigate();
 
 	useEffect(() => {
-		const promise = axios.get('https://projetomywallet-13.herokuapp.com/entries', {headers: {Authorization: `Bearer ${user.token}`}});
+		const promise = axios.get('https://mywallet-13.herokuapp.com/entries', {headers: {Authorization: `Bearer ${user.token}`}});
         promise.then((res) => {
 			setEntries(res.data);
 		});
