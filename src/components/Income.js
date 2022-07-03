@@ -25,7 +25,7 @@ export default function Income () {
             <Header>
                 <h2>Nova entrada</h2>
             </Header>
-            <Form>
+            <Form onSubmit={addIncome}>
                 <input
                     type="text"
                     placeholder="Valor"
@@ -40,7 +40,7 @@ export default function Income () {
                     required                    
                     onChange={(e) => setIncome({...income, description: e.target.value})} 
                 />
-                <Button onClick={addIncome}>
+                <Button type="submit">
                     <p>Salvar entrada</p>
                 </Button>
             </Form>
@@ -63,7 +63,7 @@ const Header=styled.div`
     
 `
 
-const Form=styled.div`
+const Form=styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
