@@ -11,7 +11,7 @@ export default function Login () {
 
     function Login (event) {
         event.preventDefault();
-        const promise = axios.post('https://mywallet-projeto13.herokuapp.com/login', {
+        const promise = axios.post('https://projetomywallet-13.herokuapp.com/login', {
             email: data.email,
             password: data.password
         });
@@ -25,7 +25,8 @@ export default function Login () {
             navigate('/menu');
         });
         promise.catch((err) => {
-            alert('Algo deu errado! Tente novamente.')
+            console.log(err)
+            alert(err)
         })
     }
 

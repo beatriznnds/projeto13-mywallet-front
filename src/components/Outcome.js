@@ -11,7 +11,7 @@ export default function Outcome () {
 
     function addOutcome (event) {
         event.preventDefault();
-        const promise = axios.post('http://localhost:5000/entries', {value: outcome.value, description: outcome.description, type: "negative"}, {headers: {Authorization: `Bearer ${user.token}`}});
+        const promise = axios.post('https://projetomywallet-13.herokuapp.com/entries', {value: outcome.value, description: outcome.description, type: "negative"}, {headers: {Authorization: `Bearer ${user.token}`}});
         promise.then((res) => {
             navigate('/menu')
         })
