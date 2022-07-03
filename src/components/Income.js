@@ -11,7 +11,7 @@ export default function Income () {
 
     function addIncome (event) {
         event.preventDefault();
-        const promise = axios.post('http://localhost:5000/entries', {value: income.value, description: income.description, type: "positive"}, {headers: {Authorization: `Bearer ${user.token}`}});
+        const promise = axios.post('https://mywallet-projeto13.herokuapp.com/entries', {value: income.value, description: income.description, type: "positive"}, {headers: {Authorization: `Bearer ${user.token}`}});
         promise.then((res) => {
             navigate('/menu')
         })
