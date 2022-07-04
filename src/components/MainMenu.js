@@ -5,6 +5,7 @@ import UserContext from  "../contexts/UserContext"
 import styled from 'styled-components'
 import Entry from './Entry'
 
+
 export default function MainMenu () {
     let balance = 0;
     const { user } = useContext(UserContext);
@@ -30,11 +31,15 @@ export default function MainMenu () {
     }
     balance = balance.toFixed(2);
 
+    function LogOut () {
+        navigate('/')
+    }
+
     return (
         <Container>
             <Header>
                 <h2>Oi, {user.name}</h2>
-                <IonIcon><ion-icon name="exit-outline"></ion-icon></IonIcon>
+                <IonIcon onClick={LogOut}><ion-icon name="exit-outline"></ion-icon></IonIcon>
             </Header>
             <BankStatement>
                 <div>
